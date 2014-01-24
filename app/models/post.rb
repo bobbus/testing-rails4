@@ -1,8 +1,10 @@
 class Post < ActiveRecord::Base
 
-  dragonfly_accessor :image do
-    copy_to(:image_thumb) { |a| a.encode('jpg') }
-  end
+  dragonfly_accessor :image
   dragonfly_accessor :image_thumb
+
+  def set_thumb
+    self.image_thumb = image.encode('jpg')
+  end
 
 end
