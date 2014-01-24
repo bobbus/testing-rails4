@@ -18,7 +18,7 @@ class PostTest < ActiveSupport::TestCase
     subject = Post.new
     filepath = Rails.root.join('test','fixtures', 'fox.png')
     subject.image = filepath
-    subject.set_thumb
+    subject.image_thumb = subject.image.encode('jpg')
     assert_equal 'fox.png', subject.image.name
   end
 end
