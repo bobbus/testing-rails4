@@ -15,15 +15,9 @@ ActiveRecord::Schema.define(version: 20140124131757) do
 
   create_table "posts", force: true do |t|
     t.string   "image_uid"
-    t.string   "image_thumb_uid"
+    t.string   "other_uid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "table_with_long_names", force: true do |t|
-    t.string "field_with_long_name"
-  end
-
-  add_index "table_with_long_names", ["field_with_long_name"], name: "index_table_with_long_names_on_field_with_long_name", using: :btree
 
 end
