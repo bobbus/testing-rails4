@@ -4,6 +4,19 @@ require 'dragonfly'
 Dragonfly.app.configure do
   plugin :imagemagick
 
+
+  processor :testing do |content|
+    tempfile = Tempfile.new('testing-image')
+    begin
+      FileUtils.copy_file(content.path, tempfile.path, true)
+      tempfile.close
+      content.update tempfile
+    ensure
+      tempfile.unlink
+    end
+  end
+
+
   protect_from_dos_attacks true
   secret "a31ac3f967ed7ad4df92b9bcfba1cc0411db27db9c0b5165a49753302af51089"
 
