@@ -1,8 +1,15 @@
 development:
   adapter: postgresql
   encoding: unicode
-  # database: vitarock_development
   database: testing4_development
+  min_messages: warning
+  pool: 5
+  username: root
+  password: postgres
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: testing4_test
   min_messages: warning
   pool: 5
   username: root
